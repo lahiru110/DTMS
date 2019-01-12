@@ -1,0 +1,352 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<title>BeyondM</title>
+
+<link rel="stylesheet" href="resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="resources/css/bootstrap-theme.min.css">
+<script src="resources/js/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<style>
+.sidenav {
+    height: 100%;
+    width: 300px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color:#333645;
+    overflow-x: hidden;
+    padding-top: 0px;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+
+    display: block;
+}
+#navcontent{
+  font-size: 15px;
+  color: #ffffff;
+  background-color:#333645;
+  padding:20px;
+
+}
+#navcontent:hover{
+    color: #f1f1f1;
+    background-color: #202334;
+
+}
+
+.main {
+    margin-left: 160px; /* Same as the width of the sidenav */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+body{
+  background: #E4E5E6
+
+
+}
+#maincontent{
+
+
+  margin-left: 300px;
+
+}
+#navtop{
+
+  background:#ffffff;
+
+
+}
+
+.glyphicon-option-vertical{
+  font-size:25px;
+  color:#f2B134;
+  margin-left:10px;
+}
+.team{
+
+  margin-left:20px;
+
+}
+.team_members{
+
+  max-height:300px;
+  overflow-y: scroll;
+  margin-right:10px;
+}
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background:#7f7f7f;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #f2B134;
+}
+#add_member{
+  background:#333645;
+  border-color:white;
+}
+#add_member:hover{
+  background:#f2B134;
+  border-color:#f2B134;
+}
+.dropbtn {
+  background-color: #ffffff;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #ffffff;
+
+}
+#content{
+
+
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+
+  padding:10px;
+  margin:50px;
+
+}
+#content1{
+
+
+
+
+}
+.page_content{
+
+  max-height:100%;
+  overflow-y: scroll;
+
+}
+
+</style>
+<script>
+$(document).ready(function(){
+  $(".calendarnav").click(function(){
+    $(".Calendar").show();
+    $(".Events").hide();
+    $(".Profile").hide();
+    $(".Leaves").hide();
+  });
+  $(".profilenav").click(function(){
+    $(".Calendar").hide();
+    $(".Events").hide();
+    $(".Profile").show();
+    $(".Leaves").hide();
+  });
+  $(".leavesnav").click(function(){
+    $(".Calendar").hide();
+    $(".Events").hide();
+    $(".Profile").hide();
+    $(".Leaves").show();
+  });
+  $(".eventsnav").click(function(){
+    $(".Calendar").hide();
+    $(".Events").show();
+    $(".Profile").hide();
+    $(".Leaves").hide();
+  });
+
+
+});
+
+
+
+</script>
+</head>
+
+<body>
+
+  <div class="sidenav">
+
+
+
+<a class ="logo" style="background:#202335;height:80px"><br><img src = "resources/images/BeyondM-2016-final.svg" width="100px" style="margin-left:70px"></img></a>
+    <a href="#Calendar" id = "navcontent" class="calendarnav"><span class="glyphicon glyphicon-calendar" style="padding-left:10px"></span> <font style="padding-left:10px">Calendar</font></a>
+    <a href="#Profile" id = "navcontent" class="profilenav"> <span class="glyphicon glyphicon-user" style="padding-left:10px"></span> <font style="padding-left:10px">Profile</font></a>
+    <a href="#Leaves" id = "navcontent" class="leavesnav"><span class="glyphicon glyphicon-plane" style="padding-left:10px"></span> <font style="padding-left:10px">Leaves</font></a>
+    <a href="#Events" id = "navcontent" class="eventsnav"><span class="glyphicon glyphicon-user" style="padding-left:10px"></span> <font style="padding-left:10px">Events</font></a>
+
+    <hr width=90% style="border-color:#4C4C54"></hr>
+    <font size=4px color="#ffffff" style="padding-left:30px">TEAM MEMBERS</font><br><br>
+    <div class="team_members">
+    <table class="team"><tr><td><img src = "resources/images/profile.jpg" width="60px" style="margin-top:10px;margin-left:0px;margin-right:10px;border-radius:50%"></td><td><b><font size="4px" color="#ffffff">Lahiru Rathnayake</font></b><br><font size="2px" color="#ffffff">Software Engineer(intern)</font>
+               </td></tr><tr><td><img src = "resources/images/profile.jpg" width="60px" style="margin-top:10px;margin-left:0px;margin-right:10px;border-radius:50%"></td><td><b><font size="4px" color="#ffffff">Lahiru Rathnayake</font></b><br><font size="2px" color="#ffffff">Software Engineer(intern)</font>
+                          </td></tr><tr><td><img src = "resources/images/profile.jpg" width="60px" style="margin-top:10px;margin-left:0px;margin-right:10px;border-radius:50%"></td><td><b><font size="4px" color="#ffffff">Lahiru Rathnayake</font></b><br><font size="2px" color="#ffffff">Software Engineer(intern)</font>
+                                     </td></tr><tr><td><img src = "resources/images/profile.jpg" width="60px" style="margin-top:10px;margin-left:0px;margin-right:10px;border-radius:50%"></td><td><b><font size="4px" color="#ffffff">Lahiru Rathnayake</font></b><br><font size="2px" color="#ffffff">Software Engineer(intern)</font>
+                                                </td></tr><tr><td><img src = "resources/images/profile.jpg" width="60px" style="margin-top:10px;margin-left:0px;margin-right:10px;border-radius:50%"></td><td><b><font size="4px" color="#ffffff">Lahiru Rathnayake</font></b><br><font size="2px" color="#ffffff">Software Engineer(intern)</font>
+                                                           </td></tr></table>
+
+
+
+</div><br><br>
+ <center><button class="btn-lg" id="add_member"><font color="white"><span class="glyphicon glyphicon-plus"></span> Add New Memeber</font></button></center>
+  </div>
+
+
+
+
+<div class="container-lg" id="maincontent">
+<div class="row" id="navtop">
+
+<div class="col-md-7" >
+  <br>
+<font size="6px" style="padding-left:30px"><b> Daily Task Management System</b></font>
+</div>
+<div class="col-md-3" >
+<table><tr><td><img src = "resources/images/profile.jpg" width="60px" style=" margin-bottom:10px;margin-top:10px;margin-left:30px;margin-right:10px;border-radius:50%"></td><td><b><font size="4px">Lahiru Rathnayake</font></b><br><font size="2px">Software Engineer(intern)</font></td><td>
+          <div class="dropdown">  <button class="dropbtn"><span class="glyphicon glyphicon-option-vertical" id="icon"></span></button>
+              <div class="dropdown-content">
+                <a href="#"><span class="glyphicon glyphicon-cog"></span> Settings</a>
+                <a href="/web/index.html"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+              </div>
+
+
+          </div> </td></tr></table>
+
+</div>
+
+<br>
+</div>
+
+
+
+
+
+
+
+<div class="Calendar">
+
+<div class="row">
+
+
+  <br>
+<div class="col-md-11" id="content">
+<font size="5px"><b>Today calendar: </b></font>
+<hr></hr>
+</div>
+
+
+
+</div>
+</div>
+<div class="Profile">
+
+<div class="row">
+
+
+  <br>
+<div class="col-md-11" id="content">
+<font size="5px"><b>Profile: </b></font>
+<hr></hr>
+</div>
+
+
+
+</div>
+</div>
+<div class="Leaves">
+
+<div class="row">
+
+
+  <br>
+<div class="col-md-11" id="content">
+<font size="5px"><b>Leaves: </b></font>
+<hr></hr>
+</div>
+
+
+
+</div>
+</div>
+<div class="Events">
+
+<div class="row">
+
+
+  <br>
+<div class="col-md-11" id="content">
+<font size="5px"><b>Events:</b></font>
+<hr></hr>
+<font size="5px"><b>Today's Special</b></font>
+<hr style="
+    border:none;
+    border-left:1px solid hsla(200, 10%, 50%,100);
+    height:100vh;
+    width:1px; "></hr>
+</div>
+
+
+
+</div>
+</div>
+</div>
+
+
+
+
+
+</body>
+</html>
