@@ -1,2 +1,2 @@
 # DTMS
-Daily Task Managment system
+Daily Task Managment System
